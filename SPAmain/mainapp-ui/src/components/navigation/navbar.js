@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     const[instrument, setInstrument] = useState([])
@@ -25,7 +26,7 @@ function Navbar() {
             <div class="collapse navbar-collapse" id="navbarNav">
               <div className="navbar-nav">
                     {instrument.map(s=>(
-                        <a class="nav-link active" aria-current="page" href="#" key={s.id}>{s.name}</a>
+                        <Link className="nav_link" to={{ pathname: `/instrument/${s.id}/`, fromDashboard: false }}>{s.name}</Link>
                     ))}
               </div>
             </div>

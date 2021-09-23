@@ -3,13 +3,20 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "./components/navigation/Navbar";
+import Navbar from "./components/navigation/navbar";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import InstrumentDetail from "./components/instrument/instrument_detail";
 
 function App() {
 
   return (
             <div className="App">
+                <Router>
               <Navbar/>
+              <Switch>
+                    <Route path="/instrument/:id" exact component={InstrumentDetail} />
+              </Switch>
+                </Router>
               <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>

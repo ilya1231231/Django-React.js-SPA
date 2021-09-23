@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import index
+from .views import index, instrument_detail
 urlpatterns = [
-    path('2/', index),
+    path('1/', index),
+    path('instrument/<int:id>/', instrument_detail)
 
 ]
