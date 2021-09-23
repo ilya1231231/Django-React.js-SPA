@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import TestAPIView
+from rest_framework import routers
+from .views import InstrumentViewSet
 
-urlpatterns =[
-    path('testapi/', TestAPIView.as_view(), name='test')
-]
+router = routers.SimpleRouter()
+router.register('instrument', InstrumentViewSet, basename='instrument')
+
+urlpatterns = []
+urlpatterns += router.urls
